@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <include>PlayerControl</include>
+        <variable constant="1" name="ScrollSpeed" sid="636570192559133" static="0" type="number">-250</variable>
+        <variable constant="0" name="Score" sid="357558381355188" static="0" type="number">0</variable>
+        <variable constant="0" name="RightBorder" sid="396959742775937" static="0" type="number">0</variable>
+        <event-block sid="157999109938568">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="261347958076363" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="584926720924082" type="System">
+                    <param id="0" name="Variable">RightBorder</param>
+                    <param id="1" name="Value">WindowWidth</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="878906894240237">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="364389780043526" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="628600993048003" type="TiledBg1">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="Speed">ScrollSpeed</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="899298668865972" type="Forest">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Speed">SCROLLSPEED/2</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="647484673754477" type="MountainsBig">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Speed">SCROLLSPEED/3</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="830973376752364" type="Castle">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="Speed">ScrollSpeed/4</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="578796318633960" type="Mountains">
+                    <param id="0" name="Which">1</param>
+                    <param id="1" name="Speed">ScrollSpeed/5</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="518251850666013" type="CloudBig">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="Speed">ScrollSpeed/6</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="108744948393752" type="CloudMiddle">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="Speed">ScrollSpeed/7</param>
+                </action>
+                <action behavior="CustomMovement" id="2" name="Set speed" sid="454585903962743" type="CloudSmall">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="Speed">ScrollSpeed/8</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="731632052983703">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="240198617748398" type="TiledBg1" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="100603174972220" type="TiledBg1">
+                    <param id="0" name="X">RightBorder</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="273712707038629">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="101663821795778" type="TiledBg2" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="969684078838435" type="TiledBg2">
+                    <param id="0" name="X">RightBorder</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="968131888748282">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="662030859723048" type="TiledBg3" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="158480584901128" type="TiledBg3">
+                    <param id="0" name="X">RightBorder</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="349910963203908">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="936757083270401" type="BgLooped" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="488052145131924" type="BgLooped">
+                    <param id="0" name="X">RightBorder</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="545545110719367" title="Enemy spawning">
+            <sub-events>
+                <event-block sid="488891125667331">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="789698859631237" type="System">
+                            <param id="0" name="Interval (seconds)">2+random(1.5)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="432945964399027" type="System">
+                            <param id="0" name="Object to create">Ulitka</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">RightBorder</param>
+                            <param id="3" name="Y">628</param>
+                        </action>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="465469588144545" type="Ulitka">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Speed">ScrollSpeed*(1+random(0.5))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="567208090581957">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="495499792109005" type="System">
+                            <param id="0" name="Interval (seconds)">2.5+random(1.5)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="230875989321834" type="System">
+                            <param id="0" name="Object to create">Bird</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">RightBorder</param>
+                            <param id="3" name="Y">432</param>
+                        </action>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="643125823206786" type="Bird">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Speed">ScrollSpeed*(1+random(0.5))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="139221456064157">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="999254040520221" type="System">
+                            <param id="0" name="Interval (seconds)">3+random(1.5)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="996405059961047" type="System">
+                            <param id="0" name="Object to create">Bird</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">RightBorder</param>
+                            <param id="3" name="Y">288</param>
+                        </action>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="326732376425978" type="Bird">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Speed">ScrollSpeed*(1+random(0.5))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="108766203751960">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="736455012105426" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>

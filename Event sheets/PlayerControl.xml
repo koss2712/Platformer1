@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>PlayerControl</name>
+    <events>
+        <variable constant="0" name="isDamageEnabled" sid="622424885971202" static="0" type="number">1</variable>
+        <variable constant="0" name="Health" sid="452132256077672" static="0" type="number">100</variable>
+        <variable constant="0" name="isTurnRight" sid="321470239378152" static="0" type="number">1</variable>
+        <event-block sid="883658376123313">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="200737691300054" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="870086813904031" type="Player">
+                    <param id="0" name="Animation">&quot;run&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="974177705899109" title="Player control">
+            <sub-events>
+                <event-block sid="945995182998356">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="490140086844564" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="575617045072913" type="Audio">
+                            <param id="0" name="Audio file">Fire</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="279051377558090" type="Player">
+                            <param id="0" name="Object">Fireball</param>
+                            <param id="1" name="Layer">3</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="136606694041679">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="955597059922679" type="System">
+                                    <param id="0" name="Variable">isTurnRight</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="947729492192124" type="Fireball">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="732039927320166">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="745812877104601" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="174285485467139" type="Fireball">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="702694928423949">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="327410135602707" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="847240246997923" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="594714302282030">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="710924651702593" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="702475899803921" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="929259934938505" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="164324377998997" type="System">
+                            <param id="0" name="Variable">isTurnRight</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="564578324421715">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="310786602910436" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="833190561859404" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="145930065995226" type="Player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="907308425472050" type="System">
+                            <param id="0" name="Variable">isTurnRight</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block any="1" sid="948332632081340">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="693105228075975" type="Player">
+                    <param id="0" name="Object">Enemies</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="932309758494788">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="160167600638703" type="System">
+                            <param id="0" name="Variable">isDamageEnabled</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="146901728888037" type="System">
+                            <param id="0" name="Variable">isDamageEnabled</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="842320253101746" type="System">
+                            <param id="0" name="Variable">Health</param>
+                            <param id="1" name="Value">Health-20</param>
+                        </action>
+                        <action id="3" name="Set progress" sid="348417667243641" type="ProgressBar">
+                            <param id="0" name="Value">Health</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="943741311016575">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="276697701384393" type="System">
+                                    <param id="0" name="Variable">Health</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Flash" id="0" name="Flash" sid="131540952357490" type="Player">
+                                    <param id="0" name="&apos;On&apos; time">0.05</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.05</param>
+                                    <param id="2" name="Duration">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="178812534195706" type="Audio">
+                                    <param id="0" name="Audio file">Damage</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-5</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="978409682917623" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="249121219340564" type="System">
+                                    <param id="0" name="Variable">isDamageEnabled</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="325006003382778">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="837935230344784" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="762522932342181" type="Player" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="578611807418029">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="575391944606268" type="Fireball">
+                    <param id="0" name="Object">Enemies</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="309148227797119" type="Fireball" />
+                <action id="0" name="Spawn another object" sid="843146550526615" type="Enemies">
+                    <param id="0" name="Object">Explosion</param>
+                    <param id="1" name="Layer">3</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="671038676441302" type="Enemies" />
+                <action id="0" name="Play" sid="761604991079522" type="Audio">
+                    <param id="0" name="Audio file">Explosion</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
