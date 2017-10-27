@@ -29,6 +29,7 @@
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+        <behavior author="Scirra" id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -311,30 +312,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="CloudBig" sid="494173930856681">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="CustomMovement" sid="747901871915322">
-                    <behavior id="custom" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="621786701851269" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="1" original-source="D:\YandexDisk\Dev\Sprites\Clouds_512x512.png">
-                        <collision-poly>
-                            <point x="0.0940695" y="0.0218978" />
-                            <point x="0.420245" y="0" />
-                            <point x="0.881391" y="0.175182" />
-                            <point x="0.997955" y="0.481752" />
-                            <point x="0.883436" y="0.832117" />
-                            <point x="0.494888" y="0.992701" />
-                            <point x="0.139059" y="0.890511" />
-                            <point x="0" y="0.518248" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="CloudMiddle" sid="253846194091997">
             <plugin id="Sprite" />
             <behaviors>
@@ -472,8 +449,11 @@
         <object-type name="Mountains" sid="691116900821613">
             <plugin id="Sprite" />
             <behaviors>
-                <behavior-type name="CustomMovement" sid="975135560891184">
-                    <behavior id="custom" />
+                <behavior-type name="Bullet" sid="337341847220367">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Wrap" sid="883774024341099">
+                    <behavior id="wrap" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -566,7 +546,6 @@
         <family name="BgLooped" plugin-id="Sprite" sid="482024025979599">
             <members>
                 <member>Castle</member>
-                <member>CloudBig</member>
                 <member>CloudMiddle</member>
                 <member>CloudSmall</member>
                 <member>Forest</member>

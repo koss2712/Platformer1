@@ -40,7 +40,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Fireball/" />
         <folder expanded="1" path="animation-folder/Bird/" />
         <folder expanded="1" path="animation-folder/Castle/" />
-        <folder expanded="1" path="animation-folder/CloudBig/" />
         <folder expanded="1" path="animation-folder/CloudMiddle/" />
         <folder expanded="1" path="animation-folder/CloudSmall/" />
         <folder expanded="1" path="animation-folder/Explosion/" />

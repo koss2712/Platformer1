@@ -39,14 +39,6 @@
                     <param id="0" name="Which">0</param>
                     <param id="1" name="Speed">ScrollSpeed/4</param>
                 </action>
-                <action behavior="CustomMovement" id="2" name="Set speed" sid="578796318633960" type="Mountains">
-                    <param id="0" name="Which">1</param>
-                    <param id="1" name="Speed">ScrollSpeed/5</param>
-                </action>
-                <action behavior="CustomMovement" id="2" name="Set speed" sid="518251850666013" type="CloudBig">
-                    <param id="0" name="Which">0</param>
-                    <param id="1" name="Speed">ScrollSpeed/6</param>
-                </action>
                 <action behavior="CustomMovement" id="2" name="Set speed" sid="108744948393752" type="CloudMiddle">
                     <param id="0" name="Which">0</param>
                     <param id="1" name="Speed">ScrollSpeed/7</param>
@@ -165,6 +157,41 @@
                 </condition>
             </conditions>
             <actions />
+        </event-block>
+        <event-block sid="288325436298912">
+            <conditions>
+                <condition id="0" name="On function" sid="403122627255165" type="Function">
+                    <param id="0" name="Name">&quot;PickEnemy&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="724533437446817">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="378135075156370" type="Enemies">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-18" name="Rotate clockwise" sid="701343119866429" type="Enemies">
+                            <param id="0" name="Degrees">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="848322358062205">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="368770844171724" type="Touch">
+                    <param id="0" name="Object">Enemies</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="918796004525187" type="Function">
+                    <param id="0" name="Name">&quot;PickEnemy&quot;</param>
+                    <param id="1" name="Parameter {n}">Enemies.UID</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
